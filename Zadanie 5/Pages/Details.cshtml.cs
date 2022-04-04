@@ -7,9 +7,11 @@ namespace Zadanie_5.Pages.Shared
     {
         [BindProperty(SupportsGet =true)]
         public Product detailsProduct { get; set; }
-        public void OnGet()
+        public void OnGet(int id,string desc)
         {
-
+            detailsProduct.id = id;
+            detailsProduct.description = desc;  
+           // detailsProduct.name = productDB.List(id).ToString();
         }
     }
 }

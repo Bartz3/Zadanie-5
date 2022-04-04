@@ -22,7 +22,7 @@
 			<th scope="row">@Html.DisplayFor(m => p.id) @Html.HiddenFor(m => m.product.id) </th>
 			<td>@Html.DisplayFor(m => p.name) @Html.HiddenFor(m => m.product.name) </td>
 			<td>@Html.DisplayFor(m => p.price) @Html.HiddenFor(m => m.product.price) </td>
-			<td> <a asp-page="Details" asp-route-id=@p.id>Szczegóły</a> | <a asp-page="Edit" asp-route-id=@p.id>Edytuj</a> | <a asp-page="Delete" asp-route-id=@p.id>Kasuj</a> | </td>
+			<td> <a asp-page="Details" asp-route-id=@p.id>Szczegóły</a> | <a asp-page="Edit" asp-route-id=@p.id asp-route-description=@p.description> Edytuj</a> | <a asp-page="Delete" asp-route-id=@p.id>Kasuj</a> | </td>
 		</tr> }
 	</tbody>
 </table>

@@ -7,6 +7,7 @@ namespace Zadanie_5.Models
     public class Product
     {
         [Display(Name = "Id")]
+        [Key]
         public int id { get; set; }
         [Required(ErrorMessage ="Pole Nazwa jest obowiązkowe!"), Display(Name = "Nazwa")]
         public string name { get; set; }

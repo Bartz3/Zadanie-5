@@ -38,9 +38,9 @@ namespace Zadanie_5.DAL
             ;
         }
         public void Delete(Product p)
-        {
+        {   
             products.Remove(p);
-            int newID= 54;
+            int newID= 1;
             foreach (var product in products)
             {
                 product.id = newID++;
@@ -52,6 +52,10 @@ namespace Zadanie_5.DAL
         }
 
         public List<Product> List()
+        {
+            return products;
+        }
+        public List<Product> List(int id)
         {
             return products;
         }
