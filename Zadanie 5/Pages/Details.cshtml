@@ -1,7 +1,21 @@
 ﻿@page
 @model Zadanie_5.Pages.Shared.DetailsModel
 @{
-    ViewData["Title"] = "Szczegóły";
+    ViewData["Title"] = "Dodaj do koszyka";
 }
-<div>Produkt @Model.detailsProduct.id </div>
-<div>Produkt @Model.detailsProduct.description </div>
+
+<h1>Dodawanie produktu do koszyka
+</h1>
+<h5>Produkt @Model.detailsProduct.id </h5>
+<div class="container">
+	<form class="form-horizontal" method="post">
+		<input hidden asp-for="detailsProduct.id" />
+		<div>Dodać produkt to koszyka?</div>
+		<br />
+		<div class="form-group"> 
+			<div class="col-sm-offset-2 col-sm-10">
+				<button class="btn btn-primary" asp-page="Bucket" asp-route-id=@Model.detailsProduct.id> Dodaj </button>
+			</div>
+		</div>
+	</form>
+</div>

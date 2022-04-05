@@ -10,8 +10,8 @@ namespace Zadanie_5.Pages
         public void OnGet(int id)
         {
             editProduct.id = id;
-            editProduct.name = productDB.List().Find(x => x.id == id).ToString();
-            editProduct.name = productDB.List().FirstOrDefault(x => x.id == id).ToString() ?? string.Empty;
+            //editProduct.name = productDB.List().Find(x => x.id == id).ToString();
+            //editProduct.name = productDB.List().FirstOrDefault(x => x.id == id).ToString() ?? string.Empty;
             //editProduct.price = productDB.List().Find(x => x.id == id).ToString();
         }
 
