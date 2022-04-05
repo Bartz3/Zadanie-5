@@ -1,6 +1,7 @@
 ﻿@page
 @model Zadanie_5.Pages.BucketModel
 @{
+	ViewData["Title"] = "Koszyk";
 }
 <h1>Koszyk
 </h1>
@@ -10,9 +11,9 @@
 		<div>Zawartość koszyka:</div>
 		<br />
 		<div class="form-group"> 
-			<div class="col-sm-offset-2 col-sm-10">
-				<button class="btn btn-primary" asp-page="List"> Wróć do listy </button>
-			</div>
+			<div class="row col-sm-12"> <a asp-page="Delete" class="btn btn-primary ">Usuń zawartość koszyka</a> </div>
+			<br />
+			<div class="row col-sm-12"> <a asp-page="List" class="btn btn-primary ">Wróć do listy</a> </div>
 		</div>
 	</form>
 </div>

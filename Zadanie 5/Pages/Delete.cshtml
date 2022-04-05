@@ -3,8 +3,7 @@
 @{
     ViewData["Title"] = "Usuń";
 }
-<h2>Usuwanie produktu 
-	@Html.Hidden("deleteProduct.id") 
+<h2>Usuwanie produktu @Model.deleteProduct.name ID: @Model.deleteProduct.id 
 </h2>
 <div class="container">
 	<form class="form-horizontal" method="post">

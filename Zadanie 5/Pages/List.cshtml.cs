@@ -4,17 +4,13 @@ using Newtonsoft.Json;
 using Zadanie_5.Models;
 namespace Zadanie_5
 {
-    public class IndexModel : MyPageModel
+    public class ListModel : MyPageModel
     {
         public List<Product> productList;
 
         public Product product { get; set; }
         public void OnGet()
         {
-            //var ProductAddress =
-            //HttpContext.Session.GetString("ProductAddress");
-            //if (ProductAddress != null)
-            //    product =  JsonConvert.DeserializeObject<Product>(null);
             LoadDB();
             productList = productDB.List();
             SaveDB();

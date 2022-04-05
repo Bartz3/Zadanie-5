@@ -7,26 +7,31 @@ namespace Zadanie_5.Pages
 {
     public class DeleteModel : MyPageModel
     {
-        
-        public Product deleteProduct = new Product();
+       //[BindProperty]
+       public Product deleteProduct { get; set; }
 
-        public ProductDB productDB { get; set; }
+        //public Product deleteProduct = new Product();
 
-        private ProductDB productdebe = new ProductDB();
+        public List<Product> productList;
 
-        public List<Product> products = new List<Product>();
         public void OnGet(int id)
         {
-            deleteProduct.id = id;
-            //deleteProduct = (Product)productDB.List().Where(x => x.id == id);
-           // deleteProduct.name= productdebe..Find(x => x.id == id).name.ToString();
+            LoadDB();
+            //productList = productDB.List();
+            deleteProduct = productDB.List().FirstOrDefault(x => x.id == id);
+
+            //deleteProduct.id = productList.FirstOrDefault(x => x.id == id).id;
+            //deleteProduct.name = productList.FirstOrDefault(x => x.id == id).name;
+            //deleteProduct.price = productList.FirstOrDefault(x => x.id == id).price;
+            //deleteProduct.description = productList.FirstOrDefault(x => x.id == id).description;
+            SaveDB();
             
         }
         public IActionResult OnPost()
         {
-                LoadDB();
-                productDB.Delete(deleteProduct);
-                SaveDB();
+            LoadDB();
+            productDB.Delete(deleteProduct);
+            SaveDB();
             
             return RedirectToPage("List");
         }

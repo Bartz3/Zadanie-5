@@ -1,17 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Zadanie_5.Models;
+using Zadanie_5.DAL;
 namespace Zadanie_5.Pages.Shared
 {
     public class DetailsModel : MyPageModel
     {
-        [BindProperty(SupportsGet =true)]
-        public Product detailsProduct { get; set; }
-        public void OnGet(int id,string desc)
+        public Product detailsProduct = new Product();
+
+        public List<Product> productList;
+
+        public void OnGet(int id)
         {
-            detailsProduct.id = id;
-            detailsProduct.description = desc;  
-           // detailsProduct.name = productDB.List(id).ToString();
+            LoadDB();
+            productList = productDB.List();
+            SaveDB();
+            detailsProduct = productList.FirstOrDefault(x => x.id == id);
         }
+
     }
 }

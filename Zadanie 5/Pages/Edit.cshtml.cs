@@ -5,24 +5,24 @@ namespace Zadanie_5.Pages
 {
     public class EditModel : MyPageModel
     {
-        [BindProperty(SupportsGet = true)]
-        public Product editProduct { get; set; }
+       
+        public Product editProduct = new Product();
+        
+        public List<Product> productList;
         public void OnGet(int id)
         {
-            editProduct.id = id;
-            //editProduct.name = productDB.List().Find(x => x.id == id).ToString();
-            //editProduct.name = productDB.List().FirstOrDefault(x => x.id == id).ToString() ?? string.Empty;
-            //editProduct.price = productDB.List().Find(x => x.id == id).ToString();
+
+            LoadDB();
+            productList = productDB.List();
+            editProduct = productList.FirstOrDefault(x => x.id == id);
+            SaveDB();
+            
         }
 
         public IActionResult OnPost()
         {
-            if (ModelState.IsValid)
-            {
-                LoadDB();
-                productDB.Create(editProduct);
-                SaveDB();
-            }
+            productDB.Edit(editProduct);
+            productDB.Save();
 
             return RedirectToPage("List");
         }

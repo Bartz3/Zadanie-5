@@ -10,7 +10,7 @@ namespace Zadanie_5.DAL
     public class ProductDB
     {
         private List<Product> products;
-
+  
         public void Load(string jsonProducts)
         {
             if(jsonProducts== null)
@@ -19,7 +19,8 @@ namespace Zadanie_5.DAL
             }
             else
             {
-                products=JsonSerializer.Deserialize<List<Product>>(jsonProducts);
+               
+                products =JsonSerializer.Deserialize<List<Product>>(jsonProducts);
             }
         }
 
@@ -35,12 +36,12 @@ namespace Zadanie_5.DAL
         
         public void Edit(Product p)
         {
-            ;
+            products.Add(p);
         }
         public void Delete(Product p)
         {   
             products.Remove(p);
-            int newID= 1;
+            int newID= 54;
             foreach (var product in products)
             {
                 product.id = newID++;
@@ -52,10 +53,6 @@ namespace Zadanie_5.DAL
         }
 
         public List<Product> List()
-        {
-            return products;
-        }
-        public List<Product> List(int id)
         {
             return products;
         }
