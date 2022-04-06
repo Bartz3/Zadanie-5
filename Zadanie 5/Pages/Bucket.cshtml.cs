@@ -7,6 +7,7 @@ namespace Zadanie_5.Pages
     {
         public void OnGet()
         {
+
         }
     }
 }

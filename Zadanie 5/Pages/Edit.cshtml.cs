@@ -5,8 +5,9 @@ namespace Zadanie_5.Pages
 {
     public class EditModel : MyPageModel
     {
-       
-        public Product editProduct = new Product();
+        [BindProperty(SupportsGet = true)]
+        public Product editProduct { get; set; }
+
         
         public List<Product> productList;
         public void OnGet(int id)
@@ -19,10 +20,12 @@ namespace Zadanie_5.Pages
             
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPost(int id)
         {
+            LoadDB();
+            productList = productDB.List();
             productDB.Edit(editProduct);
-            productDB.Save();
+            SaveDB();
 
             return RedirectToPage("List");
         }

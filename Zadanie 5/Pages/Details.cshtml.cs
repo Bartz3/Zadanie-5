@@ -17,6 +17,11 @@ namespace Zadanie_5.Pages.Shared
             SaveDB();
             detailsProduct = productList.FirstOrDefault(x => x.id == id);
         }
+        public IActionResult OnPost()
+        {
+
+            return RedirectToPage("Bucket");
+        }
 
     }
 }

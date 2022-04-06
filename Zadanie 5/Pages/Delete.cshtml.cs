@@ -27,10 +27,10 @@ namespace Zadanie_5.Pages
             SaveDB();
             
         }
-        public IActionResult OnPost()
+        public IActionResult OnPost(int id)
         {
             LoadDB();
-            productDB.Delete(deleteProduct);
+            productDB.Delete(productDB.List().FirstOrDefault(x => x.id == id));
             SaveDB();
             
             return RedirectToPage("List");

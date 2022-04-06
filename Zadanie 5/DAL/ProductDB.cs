@@ -36,16 +36,14 @@ namespace Zadanie_5.DAL
         
         public void Edit(Product p)
         {
-            products.Add(p);
+            var oldProduct= List().FirstOrDefault(x => x.id == p.id);
+            oldProduct.name = p.name;
+            oldProduct.price = p.price;
         }
         public void Delete(Product p)
         {   
             products.Remove(p);
-            int newID= 54;
-            foreach (var product in products)
-            {
-                product.id = newID++;
-            }
+           
         }
         public string Save()
         {
