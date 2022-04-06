@@ -10,6 +10,8 @@ namespace Zadanie_5.DAL
     public class ProductDB
     {
         private List<Product> products;
+
+        private List<Product> bucket;
   
         public void Load(string jsonProducts)
         {
@@ -33,7 +35,10 @@ namespace Zadanie_5.DAL
             p.id = GetNextId();
             products.Add(p);
         }
-        
+        public void AddToBucket(Product p)
+        {
+            bucket.Add(p);
+        }
         public void Edit(Product p)
         {
             var oldProduct= List().FirstOrDefault(x => x.id == p.id);
@@ -53,6 +58,10 @@ namespace Zadanie_5.DAL
         public List<Product> List()
         {
             return products;
+        }
+        public List<Product> BucketList()
+        {
+            return bucket;
         }
     }
 }

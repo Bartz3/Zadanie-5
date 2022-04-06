@@ -10,10 +10,28 @@
 	
 		<div>Zawartość koszyka:</div>
 		<br />
+		<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">@Html.DisplayNameFor(model => Model.bucketList[0].id)  </th>
+			<th scope="col">@Html.DisplayNameFor(model => Model.bucketList[0].name)</th>
+			<th scope="col">@Html.DisplayNameFor(model => Model.bucketList[0].price)</th>
+			<th scope="col">Akcja</th>
+		</tr>
+	</thead>
+	<tbody> @foreach (var p in Model.bucketList) {
+		<tr>
+			<th scope="row">@Html.DisplayFor(m => p.id) @Html.HiddenFor(m => m.product.id) </th>
+			<td>@Html.DisplayFor(m => p.name) @Html.HiddenFor(m => m.product.name) </td>
+			<td>@Html.DisplayFor(m => p.price) @Html.HiddenFor(m => m.product.price) </td>
+			<td> <a asp-page="Details" asp-route-id=@p.id >Szczegóły</a> | <a asp-page="Edit" asp-route-id=@p.id> Edytuj</a> | <a asp-page="Delete" asp-route-id=@p.id>Kasuj</a> | </td>
+		</tr> }
+	</tbody>
+</table>
 		<div class="form-group"> 
 			<div class="row col-sm-12"> <a asp-page="Delete" class="btn btn-primary ">Usuń zawartość koszyka</a> </div>
 			<br />
-			<div class="row col-sm-12"> <a asp-page="List" class="btn btn-primary ">Wróć do listy</a> </div>
+			<div class="row col-sm-12"> <a asp-page="List" class=" btn btn-primary ">Wróć do listy</a> </div>
 		</div>
 	</form>
 </div>

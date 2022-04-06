@@ -8,18 +8,19 @@ namespace Zadanie_5.Pages.Shared
     {
         public Product detailsProduct = new Product();
 
-        public List<Product> productList;
+       // public List<Product> productList;
 
         public void OnGet(int id)
         {
             LoadDB();
-            productList = productDB.List();
+            detailsProduct = productDB.List().FirstOrDefault(x => x.id == id);
             SaveDB();
-            detailsProduct = productList.FirstOrDefault(x => x.id == id);
         }
-        public IActionResult OnPost()
+        public IActionResult OnPost(int id)
         {
-
+            LoadDB();
+            productDB.AddToBucket(productDB.List().FirstOrDefault(x => x.id == id));
+            SaveDB();
             return RedirectToPage("Bucket");
         }
 
