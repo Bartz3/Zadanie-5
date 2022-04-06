@@ -6,9 +6,9 @@ namespace Zadanie_5.Pages.Shared
 {
     public class DetailsModel : MyPageModel
     {
-        public Product detailsProduct = new Product();
-
-       // public List<Product> productList;
+        [BindProperty]
+        public Product detailsProduct { get; set; }
+        // public List<Product> productList;
 
         public void OnGet(int id)
         {
@@ -19,6 +19,8 @@ namespace Zadanie_5.Pages.Shared
         public IActionResult OnPost(int id)
         {
             LoadDB();
+            //var cookieValue = Request.Cookies["MyCookie"];
+            //Response.Cookies.Append("ciastkowyProdukt", "productDB.List().FirstOrDefault(x => x.id == id)");
             productDB.AddToBucket(productDB.List().FirstOrDefault(x => x.id == id));
             SaveDB();
             return RedirectToPage("Bucket");

@@ -11,6 +11,7 @@ namespace Zadanie_5.Pages
         public void OnGet()
         {
             LoadDB();
+            var cookieValue = Request.Cookies["ciastkowyProdukt"];
             bucketList = productDB.BucketList();
             SaveDB();
         }
@@ -18,5 +19,6 @@ namespace Zadanie_5.Pages
         {
             return RedirectToPage("Bucket", p);
         }
+      
     }
 }

@@ -18,11 +18,13 @@ namespace Zadanie_5.DAL
             if(jsonProducts== null)
             {
                 products=Product.GetProducts();
+                bucket = new List<Product>();
             }
             else
             {
                
                 products =JsonSerializer.Deserialize<List<Product>>(jsonProducts);
+               bucket =JsonSerializer.Deserialize<List<Product>>(jsonProducts);
             }
         }
 

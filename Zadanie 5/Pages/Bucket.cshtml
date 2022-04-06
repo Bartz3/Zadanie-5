@@ -3,14 +3,13 @@
 @{
 	ViewData["Title"] = "Koszyk";
 }
+
 <h1>Koszyk
 </h1>
 <div class="container">
 	<form class="form-horizontal" method="post">
-	
-		<div>Zawartość koszyka:</div>
-		<br />
-		<table class="table table-striped">
+		<h1>Get-Cookie:ciastkowyProdukt</h1>
+<table class="table table-striped">
 	<thead>
 		<tr>
 			<th scope="col">@Html.DisplayNameFor(model => Model.bucketList[0].id)  </th>
@@ -19,7 +18,7 @@
 			<th scope="col">Akcja</th>
 		</tr>
 	</thead>
-	<tbody> @foreach (var p in Model.bucketList) {
+		<tbody> @foreach (var p in Model.bucketList) {
 		<tr>
 			<th scope="row">@Html.DisplayFor(m => p.id) @Html.HiddenFor(m => m.product.id) </th>
 			<td>@Html.DisplayFor(m => p.name) @Html.HiddenFor(m => m.product.name) </td>
@@ -29,9 +28,9 @@
 	</tbody>
 </table>
 		<div class="form-group"> 
-			<div class="row col-sm-12"> <a asp-page="Delete" class="btn btn-primary ">Usuń zawartość koszyka</a> </div>
+			<div class="row col-sm-12"> <a asp-page="Bucket" class="btn btn-primary ">Usuń zawartość koszyka</a> </div>
 			<br />
 			<div class="row col-sm-12"> <a asp-page="List" class=" btn btn-primary ">Wróć do listy</a> </div>
-		</div>
+		</div>      
 	</form>
 </div>

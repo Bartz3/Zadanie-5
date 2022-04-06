@@ -10,15 +10,11 @@ namespace Zadanie_5.Pages
        [BindProperty]
        public Product deleteProduct { get; set; }
 
-
-       // public List<Product> productList;
-
         public void OnGet(int id)
         {
-            LoadDB();
-            //productList = productDB.List();
-            deleteProduct = productDB.List().FirstOrDefault(x => x.id == id);
-            SaveDB();
+           LoadDB();
+           deleteProduct = productDB.List().FirstOrDefault(x => x.id == id);
+           SaveDB();
             
         }
         public IActionResult OnPost(int id)
