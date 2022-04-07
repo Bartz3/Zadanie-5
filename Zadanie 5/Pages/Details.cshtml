@@ -5,8 +5,7 @@
 }
 <h1>Dodawanie produktu do koszyka
 </h1>
-<h5>Produkt @Model.detailsProduct.name ID:@Model.detailsProduct.id</h5>
-
+Set-Cookie: <ciastkowyProdukt>=<Model.detailsProduct>
 <div class="container">
 	<form class="form-horizontal" method="post">
 		<input hidden asp-for="detailsProduct.id" />
@@ -16,7 +15,7 @@
 		<br />
 		<div class="form-group"> 
 			<div class="col-sm-offset-2 col-sm-10">
-				<button class="btn btn-primary" asp-page="Bucket" asp-route-id=@Model.detailsProduct.id> Dodaj do koszyka </button>
+				<button class="btn btn-primary"> Dodaj do koszyka </button>
 			</div>
 		</div>
 	</form>
