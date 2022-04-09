@@ -18,10 +18,18 @@ namespace Zadanie_5.Pages.Shared
         }
         public IActionResult OnPost(int id)
         {
+            // 1, 2
             LoadDB();
+            var cookie = Request.Cookies["ciastkowyProdukt"];
+            if(cookie == null)
+            {
+                cookie = String.Empty;
+            }
+
+                cookie += "," + id.ToString();
+              Response.Cookies.Append("ciastkowyProdukt", cookie);
+            
             //var cookieValue = Request.Cookies["MyCookie"];
-            //Response.Cookies.Append("ciastkowyProdukt", "productDB.List().FirstOrDefault(x => x.id == id)");
-            productDB.AddToBucket(productDB.List().FirstOrDefault(x => x.id == id));
             SaveDB();
             return RedirectToPage("Bucket");
         }

@@ -4,8 +4,8 @@
     ViewData["Title"] = "Lista produktów";
 }
 <h2>Lista produktów</h2>
-<form method="post">
-<div class="row col-sm-12"> <a asp-page="Create" class="btn btn-primary ">Dodaj</a> </div>
+@*<form method="post">*@
+<div> <a asp-page="Create" class="btn btn-primary ">Dodaj</a> </div>
 <br />
 <br />
 <table class="table table-striped">
@@ -26,10 +26,11 @@
 		</tr> }
 	</tbody>
 </table>
+<br />
 		<div class="form-group"> 
-			<div class="col-sm-offset-2 col-sm-10">
-				<button class="btn btn-primary" asp-page="Bucket"> Koszyk </button>
+			<div > <a asp-page="Bucket" class=" btn btn-primary ">Koszyk</a> </div>
+			
 			</div>
 		</div>
-</form>
+@*</form>*@
 

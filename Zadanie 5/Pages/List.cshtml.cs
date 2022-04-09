@@ -17,7 +17,7 @@ namespace Zadanie_5
         }
         public IActionResult OnPost(Product p)
         {
-            return RedirectToPage("Edit",p);
+            return RedirectToPage("Bucket");
         }
     }
 }
